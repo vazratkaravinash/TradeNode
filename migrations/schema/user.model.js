@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-function userSchema(connection) {
+function user(connection) {
 	return new Promise((resolve) => {
 		var userschema = new Schema({
 			email: String,
@@ -18,6 +18,7 @@ function userSchema(connection) {
 }
 
 
+
 module.exports = {
-	userSchema
+	user
 };
