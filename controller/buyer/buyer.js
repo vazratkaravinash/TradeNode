@@ -1,12 +1,13 @@
-var user = require("../../model/user/users");
+
+var user = require("../../model/buyer/buyer");
 /**
  * 
  * @param {*} req 
  * @param {*} res 
  */
-const addUser = (req, res) => {
-	user.checkEmailExist(req.body).then((email) => {
-		if (email) {
+const addItem = (req) => {
+	buyer.addItem(req.body).then((result) => {
+		if (result) {
 			res.send({success: false, error: "Email already exists"});
 		}
 		else {

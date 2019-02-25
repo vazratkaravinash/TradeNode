@@ -33,13 +33,13 @@ const createToken = (data) => {
  */
 const verifyToken = (token) => {
 	return new Promise((resolve, reject) => {
-		var publicKey = fs.readFileSync(path.join(__dirname+"/key"+"/public.key.pub"));
+		var publicKey = fs.readFileSync(path.join(__dirname+"/key"+"/private.key.pub"));
 		jwt.verify(token, publicKey, function(err, decoded){
 			if(!err){
 				resolve(decoded);
 			}
 			else {
-				reject(err);
+				reject(err.message);
 			}
 		});
 	});
