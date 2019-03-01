@@ -7,7 +7,7 @@ function createItemSchema(connection) {
 			name: String,
 			type: String,
 			price: Number,
-			categoty: String,
+			category: String,
 			photosId: [String],
 			description: String,
 			owner: String,
@@ -16,7 +16,8 @@ function createItemSchema(connection) {
 			color: [String],
 			status: String,
 			updated: { type: Date, default: Date.now },
-			created: { type: Date, default: Date.now }
+			created: { type: Date, default: Date.now },
+			userId: { type: Schema.Types.ObjectId, ref: "User" }
 		});
 		var user = connection.model("Item", itemschema);
 		resolve(user);

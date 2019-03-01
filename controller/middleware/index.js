@@ -3,7 +3,7 @@
 const jwt = require("../../helpers/jwt");
 
 const authenticate = (req, res, next) => {
-	jwt.authinticate(req.body.token).then((decoded) => { 
+	jwt.verifyToken(req.body.token).then((decoded) => { 
 		req.body.user = decoded;   
 		next();
 	}).catch((error) => {
